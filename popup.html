@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <!-- RẤT QUAN TRỌNG cho tiếng Việt -->
+    <title>Cài đặt Auto React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 280px;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        h3 {
+            margin-top: 0;
+            color: #1877f2;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+            transition: background-color 0.2s ease;
+        }
+        #startButton {
+            background-color: #42b72a;
+        }
+        #startButton:hover:not(:disabled) {
+            background-color: #36a420;
+        }
+        #stopButton {
+            background-color: #fa3e3e;
+        }
+         #stopButton:hover:not(:disabled) {
+            background-color: #e03030;
+        }
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+             background-color: #ccc;
+        }
+        #status {
+            margin-top: 15px;
+            font-style: italic;
+            color: #333;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            text-align: center;
+            min-height: 20px;
+        }
+        .error-message {
+             color: #fa3e3e;
+             font-weight: bold;
+        }
+        /* --- CSS cho phần thông tin tác giả --- */
+        #author-info {
+            margin-top: 20px; /* Khoảng cách với phần tử phía trên */
+            padding-top: 10px; /* Khoảng cách với đường kẻ */
+            border-top: 1px solid #eee; /* Đường kẻ phân cách */
+            font-size: 11px;    /* Cỡ chữ nhỏ */
+            font-style: italic; /* Chữ nghiêng */
+            color: #888;       /* Màu chữ mờ (xám) */
+            text-align: center; /* Căn giữa */
+        }
+        #author-info a {
+            color: #666;       /* Màu link hơi đậm hơn chút */
+            text-decoration: none; /* Bỏ gạch chân mặc định */
+        }
+         #author-info a:hover {
+            text-decoration: underline; /* Thêm gạch chân khi hover */
+        }
+    </style>
+</head>
+<body>
+    <h3>Cài đặt Tự động Like</h3>
+
+    <label for="delay">Thời gian nghỉ (giây):</label>
+    <input type="number" id="delay" min="1" value="5">
+
+    <label for="limit">Số bài tối đa để Like:</label>
+    <input type="number" id="limit" min="1" value="10">
+
+    <div class="button-container">
+        <button id="startButton">Bắt đầu</button>
+        <button id="stopButton" disabled>Dừng</button>
+    </div>
+
+    <div id="status">Trạng thái: Sẵn sàng</div>
+
+    <!-- --- Phần thông tin tác giả --- -->
+    <div id="author-info">
+        Code by: Phan Đình Thuyết<br>
+        <a href="https://www.facebook.com/phandinhthuyet/" target="_blank" rel="noopener noreferrer">
+            https://www.facebook.com/phandinhthuyet/
+        </a>
+    </div>
+    <!-- --- Kết thúc phần thông tin tác giả --- -->
+
+    <script src="popup.js"></script>
+</body>
+</html>

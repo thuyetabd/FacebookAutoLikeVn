@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "FB Mobile Auto React",
+  "version": "1.2",  // Tăng phiên bản để dễ phân biệt
+  "description": "Tự động thả Like trên m.facebook.com, mbasic.facebook.com, hoặc www.facebook.com (giao diện mobile) với độ trễ và giới hạn. Cần kiểm tra selector!", // Mô tả rõ hơn
+  "permissions": [
+    "storage", // Để lưu cài đặt (delay, limit, isRunning)
+    "tabs"     // Để gửi tin nhắn từ popup đến content script trong tab đang hoạt động
+  ],
+  "host_permissions": [
+    "*://m.facebook.com/*",
+    "*://mbasic.facebook.com/*",
+    "*://www.facebook.com/*"  // <-- Đã thêm www.facebook.com
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://m.facebook.com/*",
+        "*://mbasic.facebook.com/*",
+        "*://www.facebook.com/*"  // <-- Đã thêm www.facebook.com
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle" // Chạy sau khi DOM tải xong
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+  }
+}
+// Nhớ tạo thư mục 'icons' và đặt các file icon vào đó,
+// hoặc xóa các dòng "icons" và "default_icon" nếu không có icon.
